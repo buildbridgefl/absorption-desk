@@ -269,7 +269,7 @@ with t_chart:
                 show[c] = show[c].map(lambda x: "—" if pd.isna(x) else f"{x:+.2f}%")
             st.dataframe(show.style.apply(
                 lambda r: [f"background-color:#3A3222" if r["vol z"] >= sig.STANDOUT_VOLZ
-                           else "" for _ in r], axis=1),
+                           else "" for _ in r], axis=1).format(precision=2),
                 width="stretch", hide_index=True)
             st.caption("Highlighted = standout (vol z ≥ 4). Raw price moves, no "
                        "costs, no option translation.")
